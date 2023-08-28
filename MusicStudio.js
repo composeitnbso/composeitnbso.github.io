@@ -232,6 +232,7 @@ export class MusicStudio {
             }
             // Enter saving mode
             if (this.saveButton.flag) {
+                this.toggleGameObjects([this.downloadButton], true);
                 const input = this.promptName();
                 if (input != null) {
                     this.saving = true;
@@ -245,6 +246,7 @@ export class MusicStudio {
         if (this.backButton.flag && this.saving) {
             this.saving = false;
             this.saveButton.changeImage(images['save']);
+            this.toggleGameObjects([this.downloadButton], false);
             this.toggleGameObjects([this.playButton, this.restartButton, this.clearButton], true);
             this.backButton.flag = false;
         }
