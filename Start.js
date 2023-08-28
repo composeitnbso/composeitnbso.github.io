@@ -87,7 +87,7 @@ export class StartScreen {
             else {
                 // Once a button is pressed, render the game
                 this.game.mainLoop();
-                if (this.game.backButton.flag) {
+                if (this.game.backButton.flag && !this.game.saving) {
                     this.started = false;
                     this.game.resetGame();
                     this.game = undefined;
